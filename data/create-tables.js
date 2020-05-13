@@ -6,10 +6,7 @@ run();
 async function run() {
 
 	try {
-		// initiate connecting to db
 		await client.connect();
-
-		// run a query to create tables
 		await client.query(`
       CREATE TABLE creatures (
           id SERIAL PRIMARY KEY NOT NULL,
@@ -28,12 +25,11 @@ async function run() {
 		console.log('create tables complete');
 	}
 	catch(err) {
-		// problem? let's see the error...
 		// eslint-disable-next-line no-console
 		console.log(err);
 	}
 	finally {
-		// success or failure, need to close the db connection
+		//close db connection
 		client.end();
 	}
 
