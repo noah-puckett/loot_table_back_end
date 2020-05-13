@@ -1,6 +1,5 @@
 const client = require('../lib/client');
 
-// async/await needs to run in a function
 run();
 
 async function run() {
@@ -8,9 +7,10 @@ async function run() {
 	try {
 		await client.connect();
 		await client.query(`
-      CREATE TABLE creatures (
+      CREATE TABLE monsters (
           id SERIAL PRIMARY KEY NOT NULL,
-          name VARCHAR(512) NOT NULL
+          race VARCHAR(512) NOT NULL,
+          rank INTEGER NOT NULL
       );           
       CREATE TABLE loot (
           id SERIAL PRIMARY KEY NOT NULL,
@@ -18,7 +18,7 @@ async function run() {
           description VARCHAR(512) NOT NULL,
           value VARCHAR(256) NOT NULL,
           rarity INTEGER NOT NULL,
-          creature_id INTEGER NOT NULL REFERENCES creatures(id)
+          monster_id INTEGER NOT NULL REFERENCES monsters(id)
           );
         `);
 
