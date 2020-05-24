@@ -17,8 +17,7 @@ async function run() {
           name VARCHAR(512) NOT NULL,
           description VARCHAR(512) NOT NULL,
           value VARCHAR(256) NOT NULL,
-          rarity INTEGER NOT NULL,
-          monster_id INTEGER NOT NULL REFERENCES monsters(id)
+          rarity INTEGER NOT NULL
           );
         `);
 

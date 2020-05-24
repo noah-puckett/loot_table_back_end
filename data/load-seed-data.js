@@ -19,15 +19,15 @@ async function run() {
 			})
 		);
       
-		const monster = monsters[0].rows[0];
+		// const monster = monsters[0].rows[0];
 
 		await Promise.all(
 			loot.map(lootItem => {
 				return client.query(`
-          INSERT INTO loot (name, description, value, rarity, monster_id)
-          VALUES ($1, $2, $3, $4, $5);
+          INSERT INTO loot (name, description, value, rarity)
+          VALUES ($1, $2, $3, $4);
           `,
-				[lootItem.name, lootItem.description, lootItem.value, lootItem.rarity, monster.id]);
+				[lootItem.name, lootItem.description, lootItem.value, lootItem.rarity]);
 			})
 		);
 
