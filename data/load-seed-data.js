@@ -9,7 +9,7 @@ async function run() {
 	try {
 		await client.connect();
 
-		const monsters = await Promise.all(
+		await Promise.all(
 			monsterData.map(monster => {
 				return client.query(`
           INSERT INTO monsters (race, rank)
@@ -18,8 +18,6 @@ async function run() {
 				[monster.race, monster.rank]);
 			})
 		);
-      
-		// const monster = monsters[0].rows[0];
 
 		await Promise.all(
 			loot.map(lootItem => {
