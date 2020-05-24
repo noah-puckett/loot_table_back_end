@@ -19,7 +19,12 @@ async function run() {
           value VARCHAR(256) NOT NULL,
           rarity INTEGER NOT NULL
           );
-        `);
+
+      CREATE TABLE monster_loot (
+        monster_id INT REFERENCES monsters(id),
+        loot_id INT REFERENCES loot(id)
+        );
+      `);
 
 		console.log('create tables complete');
 	}
