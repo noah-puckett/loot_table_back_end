@@ -11,7 +11,8 @@ async function run() {
           id SERIAL PRIMARY KEY NOT NULL,
           race VARCHAR(512) NOT NULL,
           rank INTEGER NOT NULL
-      );           
+      );  
+               
       CREATE TABLE loot (
           id SERIAL PRIMARY KEY NOT NULL,
           name VARCHAR(512) NOT NULL,
