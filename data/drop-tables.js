@@ -5,12 +5,11 @@ run();
 async function run() {
 
 	try {
-		await client.connect();
     
 		await client.query(`
 		DROP TABLE IF EXISTS monster_loot CASCADE;
-            DROP TABLE IF EXISTS monsters CASCADE;
-			DROP TABLE IF EXISTS loot;
+		DROP TABLE IF EXISTS monsters CASCADE;
+		DROP TABLE IF EXISTS loot;
         `);
 
 		// eslint-disable-next-line no-console
@@ -23,5 +22,4 @@ async function run() {
 	finally {
 		client.end();
 	}
-    
 }

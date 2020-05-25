@@ -5,7 +5,6 @@ run();
 async function run() {
 
 	try {
-		await client.connect();
 		await client.query(`
       CREATE TABLE monsters (
           id SERIAL PRIMARY KEY NOT NULL,
@@ -33,8 +32,8 @@ async function run() {
 		// eslint-disable-next-line no-console
 		console.log(err);
 	}
+  
 	finally {
-		//close db connection
 		client.end();
 	}
 

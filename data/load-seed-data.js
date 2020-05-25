@@ -7,7 +7,6 @@ run();
 async function run() {
 
 	try {
-		await client.connect();
 
 		await Promise.all(
 			monsterData.map(monster => {
@@ -23,7 +22,8 @@ async function run() {
 			loot.map(lootItem => {
 				return client.query(`
           INSERT INTO loot (name, description, value, rarity)
-          VALUES ($1, $2, $3, $4);
+		  VALUES ($1, $2, $3, $4)
+		  RETURNING *;
           `,
 				[lootItem.name, lootItem.description, lootItem.value, lootItem.rarity]);
 			})
@@ -34,8 +34,9 @@ async function run() {
 	catch(err) {
 		console.log(err);
 	}
+
 	finally {
 		client.end();
 	}
-    
+
 }
