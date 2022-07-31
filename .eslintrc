@@ -14,12 +14,7 @@
   "rules": {
     "no-console": "warn",
     "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
+      "error", "tab"],
     "quotes": [
       "error",
       "single"
