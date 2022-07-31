@@ -1,4 +1,4 @@
-const client = require('../lib/client');
+const client = require('../lib/client').default;
 const loot = require('./loot.js');
 const monsterData = require('./monsters.js');
 
@@ -29,9 +29,11 @@ async function run() {
 			})
 		);
 
+		// eslint-disable-next-line no-console
 		console.log('seed data load complete');
 	}
 	catch(err) {
+		// eslint-disable-next-line no-console
 		console.log(err);
 	}
 
